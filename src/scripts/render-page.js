@@ -16,18 +16,27 @@ const createScoreRow = (score) => {
   return listRow;
 };
 
+const alternatBackground = () => {
+  const rows = [...document.querySelectorAll('.story-list-row')];
+  rows.forEach((row, index) => {
+    if (index % 2 === 0) row.style.backgroundColor = '#ddd';
+  });
+};
+
+const addChild = (score) => {
+  const leaderList = document.querySelector('.story-list-box');
+  leaderList.appendChild(createScoreRow(score));
+  alternatBackground();
+};
+
 const renderPage = () => {
   const leaderList = document.querySelector('.story-list-box');
-  leaderList.innerHTML = '';
   const scores = JSON.parse(sessionStorage.getItem('scores'));
   scores.forEach((score) => {
     leaderList.appendChild(createScoreRow(score));
   });
 
-  const rows = [...document.querySelectorAll('.story-list-row')];
-  rows.forEach((row, index) => {
-    if (index % 2 === 0) row.style.backgroundColor = '#aaa';
-  });
+  alternatBackground();
 };
 
-export default renderPage;
+export { renderPage, addChild };
