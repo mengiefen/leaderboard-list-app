@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard List App</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Leaderboard</h1>
+    </header>
+    <main class="container">
+      <div class="story-list">
+        <div>
+          <h2 class="story-list-title">Recent Stories</h2>
+          <button class="btn btn-refresh" type="button" id="btn-refresh">
+            <i class="bi bi-arrow-repeat"></i>
+          </button>
+        </div>
+        <div class="story-list-box" wrapper-story-list-content></div>
+      </div>
+
+      <div class="wrapper-story-submit">
+        <h2 class="story-list-title">Add your stories</h2>
+        <form action="#" id="submit-form" class="story-submit-form" method="post">
+          <input type="text" id="name" name="story-name" placeholder="Your name" />
+          <input type="number" id="score" name="story-score" placeholder="Your score" />
+          <button class="btn btn-story-submit" id="story-submit" type="submit">Submit</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
