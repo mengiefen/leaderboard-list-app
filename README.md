@@ -1,6 +1,6 @@
 
 
-![](https://img.shields.io/badge/Microverse-blueviolet) ![](https://img.shields.io/badge/MENGSTU-FENTAW-success) [![](https://img.shields.io/badge/LIVE-DEMO-blue)]()
+![](https://img.shields.io/badge/Microverse-blueviolet) ![](https://img.shields.io/badge/MENGSTU-FENTAW-success) [![](https://img.shields.io/badge/LIVE-DEMO-blue)](https://mengiefen.github.io/leaderboard-list-app/)
 
 # Leaderboard List App
 The Leaderboard List App is built with using webpack and ES6 features, notably modules. The Leaderboard List App  uses the Leaderboard API using JavaScript async and await.  The styles of the app is done using CSS.
@@ -72,7 +72,7 @@ To get a local copy up and running follow these simple example steps.
 
 ## Live Demo
 
-**[FOLLOW THIS LINK TO SEE THE LIVE DEMO]()**
+**[FOLLOW THIS LINK TO SEE THE LIVE DEMO](https://mengiefen.github.io/leaderboard-list-app/)**
 
 ## 📝 License
 
