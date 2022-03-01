@@ -110,11 +110,12 @@ main {
 
 .btn {
   cursor: pointer;
+  transition: all 0.75s;
 }
 
 .btn-refresh,
 .btn-story-submit {
-  border: none;
+  border: 3px solid transparent;
   outline: none;
   padding: 1.4rem;
   align-self: flex-end;
@@ -126,6 +127,16 @@ main {
   font-weight: 800;
   border-radius: 5px;
   min-width: 12rem;
+}
+
+.btn-refresh i {
+  font-size: 1.8rem;
+}
+
+.btn:hover {
+  border: 3px solid #2b7a78;
+  color: #2b7a78;
+  background-color: var(--light-grayish-blue);
 }
 
 .btn-refresh {
