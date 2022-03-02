@@ -14,34 +14,34 @@
     <main>
       <h1 class="page-header">Leaderboard</h1>
       <div class="container">
-        <div class="story-list">
+        <div class="score-list">
           <div class="title-box">
-            <h2 class="sub-title">Recent Stories</h2>
+            <h2 class="sub-title">Recent Scores</h2>
             <button class="btn btn-refresh" type="button" id="btn-refresh">
               Refresh <i class="bi bi-arrow-repeat"></i>
             </button>
           </div>
-          <div class="story-list-box">      
+          <div class="score-list-box">      
           </div>
         </div>
 
-        <div class="wrapper-story-submit">
-          <h2 class="form-title">Add your score</h2>
-          <form action="https://formspree.io/f/mdobanyg" id="submit-form" class="story-submit-form" method="post">
+        <div class="wrapper-score-submit">
+          <h2 class="form-title">Add Your Score</h2>
+          <form action="https://formspree.io/f/mdobanyg" id="submit-form" class="score-submit-form" method="post">
             <div class="wrapper-input">
-              <input type="text" id="name" name="story-name" placeholder="Your name" required/>
+              <input type="text" id="user" name="score-name" placeholder="Your name" required />
             </div>
 
             <div class="wrapper-input">
               <input
-                type="number"                
+                type="number"           
                 id="score"
-                name="story-score"
+                name="score"
                 placeholder="Your score"
                 required
               />
             </div>
-            <button class="btn btn-story-submit" id="story-submit" type="submit">Submit</button>
+            <button class="btn btn-score-submit" id="score-submit" type="submit" >Submit</button>
           </form>
         </div>
       </div>
