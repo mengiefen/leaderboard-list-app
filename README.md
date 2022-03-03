@@ -6,7 +6,7 @@
 The Leaderboard List App is built with using webpack and ES6 features, notably modules. The Leaderboard List App  uses the Leaderboard API using JavaScript async and await.  The styles of the app is done using CSS.
 ## Screenshot
 
-![screenshot]()
+![screenshot](src/images/screenshot.png)
 
 ## Built with
 
