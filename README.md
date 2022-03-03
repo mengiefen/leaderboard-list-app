@@ -29,8 +29,14 @@ To get a local copy up and running follow these simple example steps.
 - Open terminal
 - Change the directory you want put the repo
 - Then run
-  i. Run git clone git@github.com:mengiefen/leaderboard-list-app.git
-  ii. cd repo-name/
+
+  - Run git clone git@github.com:mengiefen/leaderboard-list-app.git
+
+  - cd repo-name/
+
+  - `npm install` on the root directory of your project
+
+  - `npm run start`
 
 ### Install
 
@@ -55,6 +61,7 @@ To get a local copy up and running follow these simple example steps.
   - `npx stylelint "**/*.{css,scss}"` on the root of your directory of your project.
 - **ESLint** linter
   - `npx eslint .` on the root of your directory of your project.
+
 
 ## Authors
 
