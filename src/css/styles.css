@@ -102,6 +102,20 @@ main {
   scrollbar-color: #1f4b53 transparent;
 }
 
+::-webkit-scrollbar {
+  height: 12px;
+  width: 6px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f4b53;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 .title-box {
   display: flex;
   justify-content: space-between;
