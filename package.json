@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/mengiefen/webpack-demo#readme",
   "devDependencies": {
-    "@faker-js/faker": "^6.0.0-alpha.7",
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.6.0",
     "eslint": "^7.32.0",
@@ -40,6 +39,7 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
+    "@faker-js/faker": "^6.0.0-alpha.7",
     "lodash": "^4.17.21"
   }
 }

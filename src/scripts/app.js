@@ -1,14 +1,19 @@
 import '../css/styles.css';
-import { renderPage, addChild } from './render-page.js';
+import { renderPage } from './render-page.js';
 import { fetchScores, sendScore } from './api.js';
 
-const sendFormData = () => {
-  const user = document.querySelector('#user');
-  const score = document.querySelector('#score');
-  if (user.value !== '' && score.value !== '') {
-    const formData = { user: user.value, score: score.value };
-    sendScore(formData);
-    addChild(formData);
+const submitError = document.querySelector('.error');
+
+const sendFormData = async () => {
+  const user = document.querySelector('#user').value;
+  const score = document.querySelector('#score').value;
+  const regex = /^[0-9]+$/;
+  if (user !== '' && score !== '' && score.match(regex)) {
+    const formData = { user, score };
+    await sendScore(formData);
+    await fetchScores().then((data) => {
+      renderPage(data.result);
+    });
     return true;
   }
   return false;
@@ -23,8 +28,14 @@ const eventHandler = (eventType, selector, callback) => {
 eventHandler('click', '#score-submit', (e) => {
   e.preventDefault();
   const form = document.querySelector('.score-submit-form');
-  sendFormData();
-  form.reset();
+  sendFormData().then((result) => {
+    if (result) {
+      submitError.style.display = 'none';
+      form.reset();
+    } else {
+      submitError.style.display = 'block';
+    }
+  });
 });
 
 eventHandler('click', '#btn-refresh', () => {
