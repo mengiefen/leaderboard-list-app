@@ -35,17 +35,6 @@ body {
   position: relative;
 }
 
-.overlay {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #000;
-  opacity: 0.3;
-}
-
 .error {
   display: none;
   color: rgb(168, 11, 6);
@@ -61,8 +50,8 @@ main {
   border-radius: 5px;
   height: 100vh;
   background-color: #ffffff10;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
   box-shadow: rgba(250, 250, 250, 0.7) 0 0.7rem 2.9rem 0;
 }
 
