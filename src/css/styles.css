@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800;900&family=Tourney:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
 
-:root {
-  --dark-blue: hsl(233, 26%, 24%);
-  --lime-green: hsl(136, 65%, 51%);
+root {
+  --purple: #7e077e;
+  --deep-purple: rgb(121, 20, 99);
   --bright-cyan: hsl(192, 70%, 51%);
   --light-grayish-blue: hsl(220, 16%, 96%);
 }
@@ -22,20 +22,40 @@ html {
   scroll-behavior: smooth;
   font-family: Orbitron, serif;
   font-size: 10px;
-  color: rgb(63, 16, 63);
+  color: rgb(151, 20, 123);
   font-weight: 500;
 }
 
 body {
-  background: linear-gradient(to right, #6b7c77, #013742);
-  background: url('bg.jpg');
+  background-image: linear-gradient(to right, #93fcf6, #cc4cd1);
+  background-image: url('../images/bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  text-align: center;
   margin: auto;
+  position: relative;
+}
+
+.overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0.3;
+}
+
+.error {
+  display: none;
+  color: rgb(168, 11, 6);
+  font-weight: 800;
+  font-size: 1.6em;
+  padding: 1rem 0;
 }
 
 main {
+  z-index: 999;
   margin: 0 5%;
   padding: 2rem;
   border-radius: 5px;
@@ -58,7 +78,7 @@ main {
   text-transform: uppercase;
   font-size: 4rem;
   padding-left: 5%;
-  color: var(--dark-blue);
+  color: var(--purple);
 }
 
 .sub-title {
@@ -66,7 +86,7 @@ main {
   font-size: 2.8rem;
   font-weight: 600;
   padding-right: 3rem;
-  color: var(--dark-blue);
+  color: var(--purple);
 }
 
 .container {
@@ -103,8 +123,9 @@ main {
 }
 
 .score-list-row {
-  display: flex;
-  justify-content: space-between;
+  background-color: rgba(43, 183, 218, 0.4);
+  display: grid;
+  grid-template-columns: 20% 50% 30%;
   padding: 1.2rem 3rem;
   height: auto;
   margin-bottom: 0.3rem;
@@ -119,6 +140,17 @@ main {
 
 .score-list-score {
   font-weight: bold;
+  justify-self: end;
+}
+
+.user-image {
+  height: 3.4rem;
+  width: 3.4rem;
+  border-radius: 50%;
+}
+
+.serial-number {
+  font-size: 2.2rem;
 }
 
 .btn {
@@ -127,14 +159,8 @@ main {
   padding: 1.2rem 1.5rem;
   border-radius: 3rem;
   color: #eee;
-  background-image: linear-gradient(to right, var(--lime-green) 0%, var(--bright-cyan) 100%);
-  transition: all 0.75s;
+  background-image: linear-gradient(to right, rgb(121, 20, 99) 0%, hsl(192, 70%, 51%) 100%);
   cursor: pointer;
-}
-
-.btn:hover {
-  background-image: linear-gradient(to left, var(--lime-green) 0%, var(--bright-cyan) 100%);
-  color: #eee;
 }
 
 .btn-refresh,
@@ -146,8 +172,30 @@ main {
   min-width: 12rem;
 }
 
+.btn-refresh {
+  padding: 0.8rem 1.2rem;
+  transition: transform 1s;
+}
+
+.btn-score-submit {
+  margin-top: 3rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-score-submit:hover {
+  transform: scale(1.05);
+  background-image: linear-gradient(to left, rgb(121, 20, 99) 0%, hsl(192, 70%, 51%) 100%);
+  color: #eee;
+}
+
 .btn-refresh i {
   font-size: 1.8rem;
+  transition: transform 1s;
+}
+
+.btn-refresh:active i {
+  -moz-transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 
 .wrapper-score-submit {
@@ -188,4 +236,24 @@ input {
   border-radius: 5px;
   outline: none;
   font-style: italic;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+  margin: 0;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.fetch-error {
+  display: none;
+  color: rgb(168, 11, 6);
+  font-weight: 800;
+  font-size: 1.9em;
+  padding: 1rem 0;
 }
