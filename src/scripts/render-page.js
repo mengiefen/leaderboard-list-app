@@ -82,7 +82,7 @@ const renderPage = (scores) => {
     alternatBackground();
   } else {
     error.style.display = 'block';
-    error.textContent = 'Unable to fetch scores! Please try again later.';
+    error.textContent = 'The list is empty! Please add more scores.';
     leaderList.appendChild(error);
   }
 };
