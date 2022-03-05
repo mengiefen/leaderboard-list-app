@@ -27,7 +27,7 @@ html {
 }
 
 body {
-  background-image: linear-gradient(to right, #93fcf6, #cc4cd1);
+  background: linear-gradient(to right, #93fcf6, #cc4cd1);
   background-image: url('../images/bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -35,12 +35,33 @@ body {
   position: relative;
 }
 
-.error {
+#canvas {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  cursor: crosshair;
+  display: block;
+}
+.submit-error {
   display: none;
+}
+
+.error { 
+  display: block;
   color: rgb(168, 11, 6);
   font-weight: 800;
   font-size: 1.6em;
   padding: 1rem 0;
+}
+
+.congratulations {
+  display: block;
+  color: darkblue;
+  font-size: 1.6rem;
+  text-shadow: 0 0 10px #00ffdd;
 }
 
 main {
@@ -123,32 +144,37 @@ main {
 .score-list-row {
   background-color: rgba(43, 183, 218, 0.4);
   display: grid;
-  grid-template-columns: 10% 20% 40% 30%;
-  padding: 1.2rem 3rem;
+  grid-template-columns: 5% 10% 30% 40%;
+  grid-gap: 2rem;
   height: auto;
   margin-bottom: 0.3rem;
-  box-shadow: rgba(38, 38, 112, 0.25) 0 50px 100px -20px, rgba(0, 0, 0, 0.3) 0 30px 60px -30px;
+  box-shadow: rgba(38, 38, 112, 0.25) 0 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0 30px 60px -30px;
   border-radius: 1px;
 }
 
 .score-list-name,
 .score-list-score {
   font-size: 1.6rem;
+  padding: 1.2rem 0;
 }
 
 .score-list-score {
   font-weight: bold;
   justify-self: end;
-}
-
-.user-image {
-  height: 3.4rem;
-  width: 3.4rem;
-  border-radius: 50%;
+  padding-right: 2rem;
 }
 
 .serial-number {
   font-size: 2.2rem;
+  padding: 1.2rem 0 1.2rem 2rem;
+}
+
+.medal {
+  width: 20px;
+  height: auto;
+  align-self: center;
+  justify-self: center;
 }
 
 .btn {
@@ -157,7 +183,11 @@ main {
   padding: 1.2rem 1.5rem;
   border-radius: 3rem;
   color: #eee;
-  background-image: linear-gradient(to right, rgb(121, 20, 99) 0%, hsl(192, 70%, 51%) 100%);
+  background-image: linear-gradient(
+    to right,
+    rgb(121, 20, 99) 0%,
+    hsl(192, 70%, 51%) 100%
+  );
   cursor: pointer;
 }
 
@@ -263,10 +293,7 @@ input[type='number']::-webkit-outer-spin-button {
 .btn-score-submit:hover {
   background: #03e9f4;
   color: #050801;
-  box-shadow:
-    0 0 5px #03e9f4,
-    0 0 25px #03e9f4,
-    0 0 50px #03e9f4,
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
     0 0 200px #03e9f4;
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
 }
@@ -400,8 +427,18 @@ input[type='number']::-webkit-outer-spin-button {
     padding: 0.5rem;
   }
 
-  .score-list-row {
-    padding: 1.2rem 1rem;
+  .score-list-name,
+  .score-list-score {
+    font-size: 1.3rem;
+    align-self: center;
+  }
+
+  .score-list-score {
+    text-overflow: clip;
+  }
+
+  .medal {
+    width: 20px;
   }
 
   .wrapper-score-submit {

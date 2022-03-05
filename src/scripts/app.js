@@ -4,13 +4,12 @@ import {
   getData,
   storeData,
   sortScores,
+  checkforTopThree,
 } from './render-page.js';
-import {
-  fetchScores,
-  sendScore,
-} from './api.js';
+import { fetchScores, sendScore } from './api.js';
+import showFireworks from './celebrate.js';
 
-const submitError = document.querySelector('.error');
+const submitError = document.querySelector('.submit-error');
 
 const sendFormData = () => {
   const user = document.querySelector('#user').value;
@@ -22,6 +21,7 @@ const sendFormData = () => {
       score,
     };
     sendScore(formData);
+    if (checkforTopThree(Number(score))) showFireworks();
     const scores = getData('scores');
     scores.push(formData);
     storeData('scores', scores);
@@ -41,10 +41,10 @@ eventHandler('click', '#score-submit', (e) => {
   e.preventDefault();
   const form = document.querySelector('.score-submit-form');
   if (sendFormData()) {
-    submitError.style.display = 'none';
+    submitError.classList.remove('error');
     form.reset();
   } else {
-    submitError.style.display = 'block';
+    submitError.classList.add('error');
   }
 });
 

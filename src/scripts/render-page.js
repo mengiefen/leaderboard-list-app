@@ -1,3 +1,7 @@
+import gold from '../images/gold.png';
+import silver from '../images/silver.png';
+import bronze from '../images/bronze.png';
+
 const createScoreRow = (score, index) => {
   const listRow = document.createElement('div');
   const nameHolder = document.createElement('p');
@@ -18,6 +22,17 @@ const createScoreRow = (score, index) => {
     },
   );
 
+  if (index === 0) {
+    medalImage.src = gold;
+    medalImage.classList.add('medal');
+  } else if (index === 1) {
+    medalImage.src = silver;
+    medalImage.classList.add('medal');
+  } else if (index === 2) {
+    medalImage.src = bronze;
+    medalImage.classList.add('medal');
+  }
+
   serialNo.textContent = index + 1;
 
   nameHolder.textContent = score.user;
@@ -29,7 +44,9 @@ const createScoreRow = (score, index) => {
 const alternatBackground = () => {
   const rows = [...document.querySelectorAll('.score-list-row')];
   rows.forEach((row, index) => {
-    if (index % 2 === 0) row.style.backgroundColor = 'rgba(121, 20, 99, 0.2)';
+    if (index % 2 === 0) {
+      row.style.backgroundColor = 'rgba(121, 20, 99, 0.2)';
+    }
   });
 };
 
@@ -44,21 +61,12 @@ const storeData = (key, value) => {
 
 const getData = (key) => JSON.parse(sessionStorage.getItem(key)) || [];
 
-// NOTE: celerebration using Firework
-
 const checkforTopThree = (value) => {
   const previous = JSON.parse(sessionStorage.getItem('top')).slice(1);
   const top = previous.some((val) => value >= Number(val));
   if (top) return true;
   return false;
 };
-
-// if (checkforTopThree()) {
-//   setTimeout(() => {
-//     canvas.style.display = 'block';
-//   }, 2000);
-//   canvas.remove();
-// }
 
 const topThreeScores = (scores) => {
   const topThree = [];
