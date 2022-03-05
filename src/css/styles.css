@@ -92,8 +92,8 @@ main {
 }
 
 ::-webkit-scrollbar {
-  height: 12px;
-  width: 6px;
+  height: 1.2rem;
+  width: 0.6rem;
   background: transparent;
 }
 
@@ -123,7 +123,7 @@ main {
 .score-list-row {
   background-color: rgba(43, 183, 218, 0.4);
   display: grid;
-  grid-template-columns: 20% 50% 30%;
+  grid-template-columns: 10% 20% 40% 30%;
   padding: 1.2rem 3rem;
   height: auto;
   margin-bottom: 0.3rem;
@@ -161,29 +161,14 @@ main {
   cursor: pointer;
 }
 
-.btn-refresh,
-.btn-score-submit {
+.btn-refresh {
   align-self: flex-end;
   font-family: Lato, sans-serif;
   font-size: 1.6rem;
   font-weight: 600;
   min-width: 12rem;
-}
-
-.btn-refresh {
   padding: 0.8rem 1.2rem;
   transition: transform 1s;
-}
-
-.btn-score-submit {
-  margin-top: 3rem;
-  transition: all 0.5s ease-in-out;
-}
-
-.btn-score-submit:hover {
-  transform: scale(1.05);
-  background-image: linear-gradient(to left, rgb(121, 20, 99) 0%, hsl(192, 70%, 51%) 100%);
-  color: #eee;
 }
 
 .btn-refresh i {
@@ -236,6 +221,10 @@ input {
   font-style: italic;
 }
 
+input::placeholder {
+  color: #ccc;
+}
+
 input[type='number'] {
   -moz-appearance: textfield;
   appearance: textfield;
@@ -254,6 +243,128 @@ input[type='number']::-webkit-outer-spin-button {
   font-weight: 800;
   font-size: 1.9em;
   padding: 1rem 0;
+}
+
+.btn-score-submit {
+  align-self: flex-end;
+  position: relative;
+  display: inline-block;
+  padding: 1.8rem 4rem;
+  border: none;
+  margin: 3rem 0;
+  color: #6aebd5;
+  background-color: rgb(121, 20, 99);
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  overflow: hidden;
+}
+
+.btn-score-submit:hover {
+  background: #03e9f4;
+  color: #050801;
+  box-shadow:
+    0 0 5px #03e9f4,
+    0 0 25px #03e9f4,
+    0 0 50px #03e9f4,
+    0 0 200px #03e9f4;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+.btn-score-submit:nth-child(1) {
+  filter: hue-rotate(270deg);
+}
+
+.btn-score-submit:nth-child(2) {
+  filter: hue-rotate(110deg);
+}
+
+.btn-score-submit span {
+  position: absolute;
+  display: block;
+}
+
+.btn-score-submit span:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: animate1 1s linear infinite;
+}
+
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+.btn-score-submit span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+.btn-score-submit span:nth-child(3) {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes animate3 {
+  0% {
+    right: -100%;
+  }
+
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+.btn-score-submit span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+
+  50%,
+  100% {
+    bottom: 100%;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -279,7 +390,7 @@ input[type='number']::-webkit-outer-spin-button {
   .score-list {
     margin-top: 1rem;
     order: 2;
-    max-height: 60vh;
+    max-height: 50vh;
     width: 100%;
     margin-right: 0;
     padding: 0.5rem;
@@ -296,7 +407,7 @@ input[type='number']::-webkit-outer-spin-button {
   .wrapper-score-submit {
     margin-top: 2rem;
     width: 100%;
-    max-height: 30vh;
+    max-height: 30%;
   }
 
   .form-title {
@@ -313,7 +424,7 @@ input[type='number']::-webkit-outer-spin-button {
   }
 
   .btn-score-submit {
-    margin-top: 1rem;
+    margin: 1rem 0;
   }
 }
 
