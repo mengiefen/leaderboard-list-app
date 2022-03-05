@@ -45,11 +45,12 @@ body {
   cursor: crosshair;
   display: block;
 }
+
 .submit-error {
   display: none;
 }
 
-.error { 
+.error {
   display: block;
   color: rgb(168, 11, 6);
   font-weight: 800;
@@ -61,7 +62,7 @@ body {
   display: block;
   color: darkblue;
   font-size: 1.6rem;
-  text-shadow: 0 0 10px #00ffdd;
+  text-shadow: 0 0 10px #0fd;
 }
 
 main {
@@ -148,7 +149,8 @@ main {
   grid-gap: 2rem;
   height: auto;
   margin-bottom: 0.3rem;
-  box-shadow: rgba(38, 38, 112, 0.25) 0 50px 100px -20px,
+  box-shadow:
+    rgba(38, 38, 112, 0.25) 0 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0 30px 60px -30px;
   border-radius: 1px;
 }
@@ -183,11 +185,12 @@ main {
   padding: 1.2rem 1.5rem;
   border-radius: 3rem;
   color: #eee;
-  background-image: linear-gradient(
-    to right,
-    rgb(121, 20, 99) 0%,
-    hsl(192, 70%, 51%) 100%
-  );
+  background-image:
+    linear-gradient(
+      to right,
+      rgb(121, 20, 99) 0%,
+      hsl(192, 70%, 51%) 100%
+    );
   cursor: pointer;
 }
 
@@ -293,7 +296,10 @@ input[type='number']::-webkit-outer-spin-button {
 .btn-score-submit:hover {
   background: #03e9f4;
   color: #050801;
-  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+  box-shadow:
+    0 0 5px #03e9f4,
+    0 0 25px #03e9f4,
+    0 0 50px #03e9f4,
     0 0 200px #03e9f4;
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
 }
