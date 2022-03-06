@@ -1,21 +1,40 @@
 import '../css/styles.css';
-import { renderPage } from './render-page.js';
+import './btn-animate.js';
+import {
+  renderPage,
+  getData,
+  storeData,
+  sortScores,
+  checkforTopThree,
+} from './render-page.js';
 import { fetchScores, sendScore } from './api.js';
+import showFireworks from './celebrate.js';
 
-const submitError = document.querySelector('.error');
+const submitError = document.querySelector('.submit-error');
 
-const sendFormData = async () => {
+const sendFormData = () => {
   const user = document.querySelector('#user').value;
   const score = document.querySelector('#score').value;
   const regex = /^[0-9]+$/;
-  if (user !== '' && score !== '' && score.match(regex)) {
-    const formData = { user, score };
-    await sendScore(formData);
-    await fetchScores().then((data) => {
-      renderPage(data.result);
-    });
-    return true;
+  if (score.length < 8) {
+    if (user !== '' && score !== '' && score.match(regex)) {
+      const formData = {
+        user,
+        score,
+      };
+      sendScore(formData);
+      if (checkforTopThree(Number(score))) {
+        showFireworks();
+      }
+      const scores = getData('scores');
+      scores.push(formData);
+      storeData('scores', scores);
+      renderPage(scores);
+      return true;
+    }
+    return false;
   }
+  submitError.textContent = 'Maximum Allowable Score is 9999999';
   return false;
 };
 
@@ -28,24 +47,28 @@ const eventHandler = (eventType, selector, callback) => {
 eventHandler('click', '#score-submit', (e) => {
   e.preventDefault();
   const form = document.querySelector('.score-submit-form');
-  sendFormData().then((result) => {
-    if (result) {
-      submitError.style.display = 'none';
-      form.reset();
-    } else {
-      submitError.style.display = 'block';
-    }
-  });
+  const nameInput = document.querySelector('#user');
+  const scoreInput = document.querySelector('#score');
+  if (sendFormData()) {
+    submitError.classList.remove('error');
+    form.reset();
+    nameInput.focus();
+  } else {
+    submitError.textContent = 'Please Enter All the Require Fields.';
+    submitError.classList.add('error');
+    scoreInput.focus();
+  }
 });
 
 eventHandler('click', '#btn-refresh', () => {
   fetchScores().then((data) => {
-    renderPage(data.result);
+    renderPage(sortScores(data.result));
   });
 });
 
 document.addEventListener('DOMContentLoaded', () => {
   fetchScores().then((data) => {
-    renderPage(data.result);
+    renderPage(sortScores(data.result));
+    storeData('scores', data.result);
   });
 });

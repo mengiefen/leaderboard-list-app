@@ -5,16 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="icon" type="images/png" sizes="32x32" href="./images/m-favi-icon.png" />
+    <link
+      rel="icon"
+      type="images/png"
+      sizes="32x32"
+      href="./images/m-favi-icon.png"
+    />
     <title>Leaderboard List App</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
-    />
+    />   
   </head>
+
   <body>
-    <div class="overlay"></div>
+    
     <main>
+      <div id="canvas"></div>
       <h1 class="page-header">Leaderboard</h1>
       <div class="container">
         <div class="score-list">
@@ -24,9 +31,8 @@
               Refresh <i class="bi bi-arrow-repeat"></i>
             </button>
           </div>
-          <div class="score-list-box">
-            <p class="fetch-error"></p>
-          </div>
+          <div class="score-list-box"></div>
+          <p class="fetch-error"></p>
         </div>
 
         <div class="wrapper-score-submit">
@@ -38,17 +44,41 @@
             method="post"
           >
             <div class="wrapper-input">
-              <input type="text" id="user" name="score-name" placeholder="Your name" required />
+              <input
+                type="text"
+                id="user"
+                name="score-name"
+                placeholder="Your name"
+                required
+              />
             </div>
 
             <div class="wrapper-input">
-              <input type="number" id="score" name="score" placeholder="Your score" required />
+              <input
+                type="number"
+                id="score"
+                name="score"
+                placeholder="Your score"
+                required
+                min="0"
+                max="6"
+              />
             </div>
-            <span class="error">Please enter all require fields.</span>
-            <button class="btn btn-score-submit" id="score-submit" type="submit">Submit</button>
+            
+            <p class="submit-error">Please enter all require fields.</p>
+
+            <button class="btn-score-submit" id="score-submit" type="submit">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              Submit
+            </button>
           </form>
         </div>
       </div>
     </main>
+
+   
   </body>
 </html>
