@@ -76,10 +76,11 @@ const storeData = (key, value) => {
   sessionStorage.setItem(key, JSON.stringify(sortScores(value)));
 };
 
-const getData = (key) => JSON.parse(sessionStorage.getItem(key)) || [];
+const getData = (key) =>
+  JSON.parse(sessionStorage.getItem(key)) || [];
 
 const checkforTopThree = (value) => {
-  const previous = JSON.parse(sessionStorage.getItem('top'));
+  const previous = JSON.parse(sessionStorage.getItem('top')) || [];
   const top = previous.some((val) => value >= Number(val));
   return top;
 };
