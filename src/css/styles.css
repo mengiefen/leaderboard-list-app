@@ -55,7 +55,7 @@ body {
   color: rgb(168, 11, 6);
   font-weight: 800;
   font-size: 1.6em;
-  padding: 1rem 0;
+  padding: 2rem 0 1rem 0;
 }
 
 .congratulations {
@@ -144,15 +144,29 @@ main {
 
 .score-list-row {
   background-color: rgba(43, 183, 218, 0.4);
-  display: grid;
-  grid-template-columns: 5% 10% 30% 40%;
-  grid-gap: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 4rem;
   height: auto;
   margin-bottom: 0.3rem;
-  box-shadow:
-    rgba(38, 38, 112, 0.25) 0 50px 100px -20px,
+  box-shadow: rgba(38, 38, 112, 0.25) 0 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0 30px 60px -30px;
   border-radius: 1px;
+}
+
+.wrapper-serial-image {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.wrapper-name-score {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .score-list-name,
@@ -168,15 +182,16 @@ main {
 }
 
 .serial-number {
+  width: 20px;
   font-size: 2.2rem;
-  padding: 1.2rem 0 1.2rem 2rem;
+  padding: 0 2rem;
 }
 
 .medal {
   width: 20px;
   height: auto;
   align-self: center;
-  justify-self: center;
+  justify-self: flex-start;
 }
 
 .btn {
@@ -185,12 +200,11 @@ main {
   padding: 1.2rem 1.5rem;
   border-radius: 3rem;
   color: #eee;
-  background-image:
-    linear-gradient(
-      to right,
-      rgb(121, 20, 99) 0%,
-      hsl(192, 70%, 51%) 100%
-    );
+  background-image: linear-gradient(
+    to right,
+    rgb(121, 20, 99) 0%,
+    hsl(192, 70%, 51%) 100%
+  );
   cursor: pointer;
 }
 
@@ -282,9 +296,9 @@ input[type='number']::-webkit-outer-spin-button {
   align-self: flex-end;
   position: relative;
   display: inline-block;
-  padding: 1.8rem 4rem;
-  border: none;
-  margin: 3rem 0;
+  padding: 1.6rem 4rem;
+  border: 3px solid transparent;
+  margin: 2rem 0;
   color: #6aebd5;
   background-color: rgb(121, 20, 99);
   text-transform: uppercase;
@@ -294,12 +308,10 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .btn-score-submit:hover {
+  border: 3px solid rgb(121, 20, 99);
   background: #03e9f4;
   color: #050801;
-  box-shadow:
-    0 0 5px #03e9f4,
-    0 0 25px #03e9f4,
-    0 0 50px #03e9f4,
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
     0 0 200px #03e9f4;
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
 }
@@ -314,90 +326,38 @@ input[type='number']::-webkit-outer-spin-button {
 
 .btn-score-submit span {
   position: absolute;
-  display: block;
 }
 
 .btn-score-submit span:nth-child(1) {
-  top: 0;
   left: 0;
-  width: 100%;
-  height: 4px;
+  top: 0;
+  width: 0;
+  height: 10px;
   background: linear-gradient(90deg, transparent, #03e9f4);
-  animation: animate1 1s linear infinite;
-}
-
-@keyframes animate1 {
-  0% {
-    left: -100%;
-  }
-
-  50%,
-  100% {
-    left: 100%;
-  }
 }
 
 .btn-score-submit span:nth-child(2) {
-  top: -100%;
+  top: 0;
   right: 0;
-  width: 4px;
-  height: 100%;
+  width: 10px;
+  height: 0;
   background: linear-gradient(180deg, transparent, #03e9f4);
-  animation: animate2 1s linear infinite;
-  animation-delay: 0.25s;
-}
-
-@keyframes animate2 {
-  0% {
-    top: -100%;
-  }
-
-  50%,
-  100% {
-    top: 100%;
-  }
 }
 
 .btn-score-submit span:nth-child(3) {
-  bottom: 0;
   right: 0;
-  width: 100%;
-  height: 4px;
+  bottom: 0;
+  height: 10px;
+  width: 0;
   background: linear-gradient(270deg, transparent, #03e9f4);
-  animation: animate3 1s linear infinite;
-  animation-delay: 0.5s;
-}
-
-@keyframes animate3 {
-  0% {
-    right: -100%;
-  }
-
-  50%,
-  100% {
-    right: 100%;
-  }
 }
 
 .btn-score-submit span:nth-child(4) {
-  bottom: -100%;
+  bottom: 0;
   left: 0;
-  width: 4px;
-  height: 100%;
+  height: 0;
+  width: 10px;
   background: linear-gradient(360deg, transparent, #03e9f4);
-  animation: animate4 1s linear infinite;
-  animation-delay: 0.75s;
-}
-
-@keyframes animate4 {
-  0% {
-    bottom: -100%;
-  }
-
-  50%,
-  100% {
-    bottom: 100%;
-  }
 }
 
 @media screen and (max-width: 768px) {
@@ -431,6 +391,8 @@ input[type='number']::-webkit-outer-spin-button {
 
   .score-list-box {
     padding: 0.5rem;
+    margin: 0;
+    margin: 1rem 0;
   }
 
   .score-list-name,
@@ -467,12 +429,59 @@ input[type='number']::-webkit-outer-spin-button {
   }
 
   .btn-score-submit {
-    margin: 1rem 0;
+    margin: 2rem 0 1rem 0;
+    padding: 1.2rem 4rem;
+    border: 2px solid transparent;
+  }
+
+  .btn-score-submit:hover,
+  .btn-score-submit:active {
+    background: rgb(121, 20, 99);
+    color: #03e9f4;
+    border: 2px solid #03e9f4;
+  }
+
+  .btn-score-submit span:nth-child(1) {
+    height: 4px;
+  }
+
+  .btn-score-submit span:nth-child(2) {
+    width: 4px;
+  }
+
+  .btn-score-submit span:nth-child(3) {
+    height: 4px;
+  }
+
+  .btn-score-submit span:nth-child(4) {
+    width: 4px;
   }
 }
 
 @media screen and (max-width: 992px) {
   main {
     margin: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .score-list-row {
+    justify-content: space-between;
+  }
+
+  .wrapper-name-score {
+    width: 60%;
+    flex-direction: column;
+  }
+
+  .score-list-score {
+    justify-self: center;
+    padding-right: 0;
+    padding-bottom: 1rem;
+  }
+
+  .score-list-name {
+    justify-self: center;
+    padding: 1rem 0 0 0;
   }
 }

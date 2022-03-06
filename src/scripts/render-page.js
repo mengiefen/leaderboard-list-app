@@ -8,19 +8,32 @@ const createScoreRow = (score, index) => {
   const scoreHolder = document.createElement('p');
   const serialNo = document.createElement('span');
   const medalImage = document.createElement('img');
+  const serialImageHolder = document.createElement('div');
+  const nameScoreHolder = document.createElement('div');
+  const imageHolder = document.createElement('div')
   const classLists = [
     'serial-number',
+    'image-holder',
     'medal-image',
     'score-list-row',
     'score-list-name',
     'score-list-score',
+    'wrapper-serial-image',
+    'wrapper-name-score',
   ];
 
-  [serialNo, medalImage, listRow, nameHolder, scoreHolder].forEach(
-    (element, index) => {
-      element.setAttribute('class', classLists[index]);
-    },
-  );
+  [
+    serialNo,
+    imageHolder,
+    medalImage,
+    listRow,
+    nameHolder,
+    scoreHolder,
+    serialImageHolder,
+    nameScoreHolder,
+  ].forEach((element, index) => {
+    element.setAttribute('class', classLists[index]);
+  });
 
   if (index === 0) {
     medalImage.src = gold;
@@ -34,10 +47,14 @@ const createScoreRow = (score, index) => {
   }
 
   serialNo.textContent = index + 1;
-
   nameHolder.textContent = score.user;
   scoreHolder.textContent = score.score;
-  listRow.append(serialNo, medalImage, nameHolder, scoreHolder);
+
+  imageHolder.appendChild(medalImage);
+
+  serialImageHolder.append(serialNo, imageHolder);
+  nameScoreHolder.append(nameHolder, scoreHolder);
+  listRow.append(serialImageHolder, nameScoreHolder);
   return listRow;
 };
 
@@ -59,7 +76,8 @@ const storeData = (key, value) => {
   sessionStorage.setItem(key, JSON.stringify(sortScores(value)));
 };
 
-const getData = (key) => JSON.parse(sessionStorage.getItem(key)) || [];
+const getData = (key) =>
+  JSON.parse(sessionStorage.getItem(key)) || [];
 
 const checkforTopThree = (value) => {
   const previous = JSON.parse(sessionStorage.getItem('top')).slice(1);

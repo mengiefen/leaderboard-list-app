@@ -1,4 +1,5 @@
 import '../css/styles.css';
+import './btn-animate.js';
 import {
   renderPage,
   getData,
@@ -15,19 +16,23 @@ const sendFormData = () => {
   const user = document.querySelector('#user').value;
   const score = document.querySelector('#score').value;
   const regex = /^[0-9]+$/;
-  if (user !== '' && score !== '' && score.match(regex)) {
-    const formData = {
-      user,
-      score,
-    };
-    sendScore(formData);
-    if (checkforTopThree(Number(score))) showFireworks();
-    const scores = getData('scores');
-    scores.push(formData);
-    storeData('scores', scores);
-    renderPage(scores);
-    return true;
+  if (score.length < 8) {
+    if (user !== '' && score !== '' && score.match(regex)) {
+      const formData = {
+        user,
+        score,
+      };
+      sendScore(formData);
+      if (checkforTopThree(Number(score))) showFireworks();
+      const scores = getData('scores');
+      scores.push(formData);
+      storeData('scores', scores);
+      renderPage(scores);
+      return true;
+    }
+    return false;
   }
+  submitError.textContent = 'Maximum score is 9999999';
   return false;
 };
 
@@ -40,11 +45,15 @@ const eventHandler = (eventType, selector, callback) => {
 eventHandler('click', '#score-submit', (e) => {
   e.preventDefault();
   const form = document.querySelector('.score-submit-form');
+  const nameInput = document.querySelector('#user');
+  const scoreInput = document.querySelector('#score');
   if (sendFormData()) {
     submitError.classList.remove('error');
     form.reset();
+    nameInput.focus();
   } else {
     submitError.classList.add('error');
+    scoreInput.focus();
   }
 });
 
