@@ -61,9 +61,7 @@ eventHandler('click', '#score-submit', (e) => {
 });
 
 eventHandler('click', '#btn-refresh', () => {
-  fetchScores().then((data) => {
-    renderPage(sortScores(data.result));
-  });
+  document.location.reload();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
