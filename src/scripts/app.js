@@ -23,7 +23,9 @@ const sendFormData = () => {
         score,
       };
       sendScore(formData);
-      if (checkforTopThree(Number(score))) showFireworks();
+      if (checkforTopThree(Number(score))) {
+        showFireworks();
+      }
       const scores = getData('scores');
       scores.push(formData);
       storeData('scores', scores);
@@ -32,7 +34,7 @@ const sendFormData = () => {
     }
     return false;
   }
-  submitError.textContent = 'Maximum score is 9999999';
+  submitError.textContent = 'Maximum Allowable Score is 9999999';
   return false;
 };
 
@@ -52,6 +54,7 @@ eventHandler('click', '#score-submit', (e) => {
     form.reset();
     nameInput.focus();
   } else {
+    submitError.textContent = 'Please Enter All the Require Fields.';
     submitError.classList.add('error');
     scoreInput.focus();
   }

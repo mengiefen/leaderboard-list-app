@@ -76,18 +76,17 @@ const storeData = (key, value) => {
   sessionStorage.setItem(key, JSON.stringify(sortScores(value)));
 };
 
-const getData = (key) => JSON.parse(sessionStorage.getItem(key)) || [];
+const getData = (key) =>
+  JSON.parse(sessionStorage.getItem(key)) || [];
 
 const checkforTopThree = (value) => {
-  const previous = JSON.parse(sessionStorage.getItem('top')).slice(1);
-  const top = previous.some((val) => value >= Number(val));
-  if (top) return true;
-  return false;
+  const previous = JSON.parse(sessionStorage.getItem('top'));
+  const top = previous.some((val) => value >= Number(val)); 
+  return top;
 };
 
 const topThreeScores = (scores) => {
   const topThree = [];
-  topThree.push(scores.length);
   scores.slice(0, 3).forEach((element) => {
     topThree.push(element.score);
   });
@@ -107,7 +106,7 @@ const renderPage = (scores) => {
     alternatBackground();
   } else {
     error.style.display = 'block';
-    error.textContent = 'The list is empty! Please add more scores.';
+    error.textContent = 'The List is Empty! Please Add More Scores.';
     leaderList.appendChild(error);
   }
 };

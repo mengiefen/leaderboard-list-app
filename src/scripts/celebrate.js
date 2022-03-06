@@ -12,7 +12,7 @@ const showFireworks = () => {
     acceleration: 1.05,
     friction: 0.98,
     gravity: 1,
-    particles: 300,
+    particles: 500,
     trace: 3,
     explosion: 5,
     boundaries: {
@@ -22,7 +22,7 @@ const showFireworks = () => {
       right: container.clientWidth,
     },
     sound: {
-      enable: false,
+      enable: true,
       list: ['explosion0.mp3', 'explosion1.mp3', 'explosion2.mp3'],
       min: 4,
       max: 100,
@@ -30,7 +30,7 @@ const showFireworks = () => {
   });
   const showCongrats = document.querySelector('.submit-error');
   showCongrats.classList.toggle('congratulations');
-  showCongrats.textContent = 'Congratulations. You won a medal!';
+  showCongrats.textContent = 'Congratulations. You Won a Medal!';
   fireworks.start();
 
   setTimeout(() => {
