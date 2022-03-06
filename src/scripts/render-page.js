@@ -10,7 +10,7 @@ const createScoreRow = (score, index) => {
   const medalImage = document.createElement('img');
   const serialImageHolder = document.createElement('div');
   const nameScoreHolder = document.createElement('div');
-  const imageHolder = document.createElement('div')
+  const imageHolder = document.createElement('div');
   const classLists = [
     'serial-number',
     'image-holder',
@@ -76,8 +76,7 @@ const storeData = (key, value) => {
   sessionStorage.setItem(key, JSON.stringify(sortScores(value)));
 };
 
-const getData = (key) =>
-  JSON.parse(sessionStorage.getItem(key)) || [];
+const getData = (key) => JSON.parse(sessionStorage.getItem(key)) || [];
 
 const checkforTopThree = (value) => {
   const previous = JSON.parse(sessionStorage.getItem('top')).slice(1);

@@ -150,7 +150,8 @@ main {
   gap: 4rem;
   height: auto;
   margin-bottom: 0.3rem;
-  box-shadow: rgba(38, 38, 112, 0.25) 0 50px 100px -20px,
+  box-shadow:
+    rgba(38, 38, 112, 0.25) 0 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0 30px 60px -30px;
   border-radius: 1px;
 }
@@ -200,11 +201,12 @@ main {
   padding: 1.2rem 1.5rem;
   border-radius: 3rem;
   color: #eee;
-  background-image: linear-gradient(
-    to right,
-    rgb(121, 20, 99) 0%,
-    hsl(192, 70%, 51%) 100%
-  );
+  background-image:
+    linear-gradient(
+      to right,
+      rgb(121, 20, 99) 0%,
+      hsl(192, 70%, 51%) 100%
+    );
   cursor: pointer;
 }
 
@@ -311,7 +313,10 @@ input[type='number']::-webkit-outer-spin-button {
   border: 3px solid rgb(121, 20, 99);
   background: #03e9f4;
   color: #050801;
-  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+  box-shadow:
+    0 0 5px #03e9f4,
+    0 0 25px #03e9f4,
+    0 0 50px #03e9f4,
     0 0 200px #03e9f4;
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
 }
