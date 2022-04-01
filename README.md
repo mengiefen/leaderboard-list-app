@@ -1,67 +1,63 @@
-
-
 ![](https://img.shields.io/badge/Microverse-blueviolet) ![](https://img.shields.io/badge/MENGSTU-FENTAW-success) [![](https://img.shields.io/badge/LIVE-DEMO-blue)](https://mengiefen.github.io/leaderboard-list-app/)
 
-# Leaderboard List App
-The Leaderboard List App is built with using webpack and ES6 features, notably modules. The Leaderboard List App  uses the Leaderboard API using JavaScript async and await.  The styles of the app is done using CSS.
+# Math Magician App
+
+The "MathMagician" app is a website for all fans of mathematics. It is a Single Page App (SPA) that allows users to:
+
+    - Make simple calculations.
+    - Read a random math-related quote.
+
+The "MathMagician" App is built with using React.js.
+
 ## Screenshot
 
 ![screenshot](src/images/screenshot.png)
 
 ## Built with
 
-- Major languages: HTML, CSS, JavaScript
-- Technologies used: Github, Linters, Webpack, Gitflow
-
-## Getting Started
-
-Clone the repository and setup the linter
+- Major languages: React.js, CSS
+- Technologies used: Github, Linters, Webpack, Gitflow, Babel
 
 ## Prerequisites
 
 - npm ( Node Package Manager )
 - git and Github Account
 
-### Setup
+## Getting Started
 
 To get a local copy up and running follow these simple example steps.
 
 - Open terminal
-- Change the directory you want put the repo
-- Then run
+- Change the directory then run the following:
 
-  - Run git clone git@github.com:mengiefen/leaderboard-list-app.git
+  - Run `git clone git@github.com:mengiefen/leaderboard-list-app.git`
 
   - cd repo-name/
 
-  - `npm install` on the root directory of your project
+### Setup
 
-  - `npm run start`
+- `npm install` on the root directory of your project
+
+- `npm start` Runs the app in the development mode.
+- Open http://localhost:3000 to view it in your browser.
+- `npm run build` Builds the app for production to the build folder.
 
 ### Install
 
-- **Webhint** linter
-
-  `npm install --save-dev hint@6.x`
-
-- **Stylelint** linter
+- To install local copy **Stylelint**
 
   `npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x`
 
-- **ESLint** linter
+- To install local copy of **ESLint**
 
   `npm install --save-dev eslint@7.x eslint-config-airbnb-base@14.x eslint-plugin-import@2.x babel-eslint@10.x`
 
+### Run Linters
 
-
-### Run tests
-
-- **Webhint** linter -`npx hint .` on the root of your directory of your project.
 - **Stylelint** linter
   - `npx stylelint "**/*.{css,scss}"` on the root of your directory of your project.
 - **ESLint** linter
   - `npx eslint .` on the root of your directory of your project.
-
 
 ## Authors
 
