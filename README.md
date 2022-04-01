@@ -1,13 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet) ![](https://img.shields.io/badge/MENGSTU-FENTAW-success) [![](https://img.shields.io/badge/LIVE-DEMO-blue)](https://mengiefen.github.io/leaderboard-list-app/)
 
-# Math Magician App
+# The Leaderboard App
 
-The "MathMagician" app is a website for all fans of mathematics. It is a Single Page App (SPA) that allows users to:
-
-    - Make simple calculations.
-    - Read a random math-related quote.
-
-The "MathMagician" App is built with using React.js.
+The Leaderboard List App is built with webpack and ES6 features, notably modules. This appp uses the Leaderboard API service to store user scores. 
 
 ## Screenshot
 
