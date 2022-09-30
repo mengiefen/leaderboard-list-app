@@ -10,7 +10,7 @@ The Leaderboard List App is built with webpack and ES6 features, notably modules
 
 ## Built with
 
-- Major languages: React.js, CSS
+- Major languages: JavaScript, CSS
 - Technologies used: Github, Linters, Webpack, Gitflow, Babel
 
 ## Prerequisites
