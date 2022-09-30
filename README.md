@@ -2,7 +2,7 @@
 
 # The Leaderboard App
 
-The Leaderboard List App is built with webpack and ES6 features, notably modules. This appp uses the Leaderboard API service to store user scores. 
+The Leaderboard List App is built with webpack and ES6 features, notably modules. This app uses the Leaderboard API service to store user scores. 
 
 ## Screenshot
 
